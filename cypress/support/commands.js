@@ -27,7 +27,43 @@
 
 Cypress.Commands.add('login', (usuario, senha) => {
     cy.get('#username').type(usuario)
-    cy.get('#password').type(senha, {log: false})
+    cy.get('#password').type(senha, { log: false })
     cy.get('.woocommerce-form > .button').click()
-});
+})
+
+Cypress.Commands.add('addProduto1', (produto, tamanho, cor, quantidade) => {
+    cy.get('.product-block').contains(produto).click()
+    cy.get('.button-variable-item-' + tamanho).click()
+    cy.get('.button-variable-item-' + cor).click()
+    cy.get('.input-text').clear().type(quantidade)
+    cy.get('.single_add_to_cart_button').click()
+
+})
+Cypress.Commands.add('addProduto2', (produto, tamanho, cor, quantidade) => {
+    cy.get('#primary-menu > .menu-item-629 > a').click()
+    cy.get('.product-block').contains(produto).click()
+    cy.get('.button-variable-item-' + tamanho).click()
+    cy.get('.button-variable-item-' + cor).click()
+    cy.get('.input-text').clear().type(quantidade)
+    cy.get('.single_add_to_cart_button').click()
+
+})
+Cypress.Commands.add('addProduto3', (produto, tamanho, cor, quantidade) => {
+    cy.get('#primary-menu > .menu-item-629 > a').click()
+    cy.get('.product-block').contains(produto).click()
+    cy.get('.button-variable-item-' + tamanho).click()
+    cy.get('.button-variable-item-' + cor).click()
+    cy.get('.input-text').clear().type(quantidade)
+    cy.get('.single_add_to_cart_button').click()
+})
+Cypress.Commands.add('addProduto4', (produto, tamanho, cor, quantidade) => {
+    cy.get('#primary-menu > .menu-item-629 > a').click()
+    cy.get(':nth-child(2) > .page-numbers').click()
+    cy.get('.product-block').contains(produto).click()
+    cy.get('.button-variable-item-' + tamanho).click()
+    cy.get('.button-variable-item-' + cor).click()
+    cy.get('.input-text').clear().type(quantidade)
+    cy.get('.single_add_to_cart_button').click()
+
+})
 
